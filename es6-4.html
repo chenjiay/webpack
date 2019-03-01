@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  function aa(q){
+        //     console.log(q)
+        // }
+
+        // var x = aa(3);
+        // console.log
+
+        // function* aa(){
+        //     yield "hello";
+        //     yield "howaruyou";
+        //     return "ending"
+        // }
+        
+        // var a = aa();
+        // console.log(a.next());
+        // console.log(a.next());
+        // console.log(a.next());
+        // var arr = [1,2,3]
+
+        // var it = arr[Symbol.iterator]();
+
+        // console.log(it.next()) // { value: "a", done: false }
+        // console.log(it.next())// { value: "b", done: false }
+        // console.log(it.next()) // { value: undefined, done: true }
+
+        // var it = makeIterator(['a', 'b']);
+        // console.log(it.next()) // { value: "a", done: false }
+        // console.log(it.next()) // { value: "b", done: false }
+        // console.log(it.next()) // { value: undefined, done: true }
+
+        // function makeIterator(array) {
+        // var nextIndex = 0;
+        // return {
+        //     next: function() {//这里是es6的写法
+        //     return nextIndex < array.length ?
+        //         {value: array[nextIndex++], done: false} :
+        //         {value: undefined, done: true};
+        //     }
+        // };
+        // }
+
+        // console.log(typeof it)
+    //     var obj = {
+    //         [Symbol.iterator]:function* (){
+    //             yield 'hellow';
+    //             yield 'hellow';
+    //             return 'ending'
+    //        }
+    //     }
+    //     for( prop of obj){
+    //         console.log(prop);
+            
+    //     }
+
+    //   console.log(undefined + 10)
+
+    // function* aa(x){
+    //     var y = yield x;       
+    //     var z = yield y + 10;        
+    // }
+    // var dd = aa(10);
+    // console.log(dd.next())//{value: 10, done: false}简单的说就是当指针指到var y = yield x 语句时由于并没有给其赋值所以y是undefined
+    // console.log(dd.next())//{value: NaN, done: false}
+    // cossole.log(dd.next(5))// 此时给y赋值 y = 5
+
+    // const arr = [1,2,3,3,5,4,5];
+    // const a = new Set();
+    // arr.forEach(item => a.add(item));
+    // // console.log(a)
+    // var ar =  [...a];
+    // // console.log(ar) 
+
+    // for(var prop of arr){
+    //     console.log(prop)
+    // }
+
+    // console.log(true + 1) // 2
+    // console.log(undefined + 1)//NaN
+    
+    
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //鲁巍哥自己也没有实现哈哈哈哈
+        // var promise = function(fn){
+        //     console.log(1)
+        //     var _that = this;
+        //     this.status = "pending";
+        //     this.values = undefined;
+         
+        //     function resolved(value){
+        //         console.log(2)
+        //         if(_that.status = "pending"){
+        //             console.log(3)
+        //             _that.status = "resolved";
+        //             _that.values = value;
+        //         }
+                
+        //     }
+        //     function rejected(value){
+        //         console.log(4)
+        //         if(_that.status = "pending"){
+        //             console.log(5)
+        //             _that.status = "rejected";
+        //             _that.values = value;
+        //         }
+        //     }   
+        //     fn(resolved,rejected);
+
+        // }
+        // promise.prototype.then = function(onresolved,onrejected){
+        //     console.log(6)
+        //     console.log(this.status)
+        //     if(this.status == 'resolved'){
+        //         return new promise(function(resolved,rejected){
+        //             console.log(7)
+        //             onresolved();
+        //         })
+                
+        //     }else if(this.status == 'rejected'){
+        //         return new promise(function(resolved,rejected){
+        //             console.log(8)
+        //             onrejected();
+        //         })
+                
+        //     }            
+        // }
+        // function loadImage(url){
+        //     return new promise(function(resolved,rejected){
+        //          let img = new Image();
+        //          img.onload = function(){
+        //              resolved();
+        //          }
+        //          img.onerror = function(){
+        //              rejected();
+        //          }
+        //          img.src = url;
+        //     })                       
+        // }
+        // let a = loadImage("../aa.jpg");
+        // a.then(function(){
+        //     // console.log(this)
+        //     console.log(22)
+        // },function(){
+        //     console.log(33)
+        // })
+
+        // function ajax(url){
+        //     return new Promise(function(resolved,rejected){
+        //         var app = new XMLHttpRequest();
+        //         app.open('GET',url,true);
+        //         app.send();
+        //         app.onreadystatechange = function(){
+        //             if(app.readyState == 4 && app.status == 200){
+        //                 resolved();
+                    
+        //             }else{
+        //                 rejected();
+        //             }
+        //         }
+        //     })
+        // }
+
+        // var app = ajax('sh.txt');
+        // app.then(function(){
+        //     console.log(111)
+        // },function(){
+        //     console.log(222)
+        // })
+
+
+        
+        // var p = new promise(function(resolved,rejected){
+        //     resolved(10);
+        // })
+
+        // var arr = [1,2,3];
+        // var it = arr[Symbol.iterator]();
+        // console.log(it.next());
+        // console.log(it.next());
+        // console.log(it.next());
+        // var set = new Set([2,3,4]);
+        // var iset = set[Symbol.iterator]();
+        // console.log(iset.next());
+        // console.log(iset.next());
+        // console.log(iset.next());
+        // var map = new Map([["name","cjy"],["age",21]]);
+        // var imap = map[Symbol.iterator]();
+        // console.log(imap.next());
+        // console.log(imap.next());
+        // console.log(imap.next());
+        // for(var i of arr){
+        //     console.log(i)
+        // }
+        // console.log(i)
+        // for(var i of set){
+        //     console.log(i)
+        // }
+        // for(var i of map){
+        //     console.log(i)
+        // }
+
+        // 嘿嘿 this is用Promise改装Ajax的正确方法
+        function Ajax(method,url,flag){
+          return new Promise(function(resolved,rejected){
+             
+              var app = new XMLHttpRequest();
+               
+              app.open(method,url,flag);
+              
+              app.send();
+              console.log(1)
+              app.onreadystatechange = function(){
+                  console.log(2)
+                  if(app.readyState == 4 ){
+                      if(app.status == 200){
+                          console.log(3)
+                          resolved(app.responseText);
+                      }else{
+                          console.log(5);
+                          rejected()
+                      }
+                      
+                  }
+              }
+          })
+        }
+        var a = new Ajax('GET','./sh.txt',true);
+        a.then(function(data){
+            console.log(data)
+        },function(){
+            console.log('error')
+        })
+    </script>
+</body>
+</html>
